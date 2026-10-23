@@ -41,3 +41,4 @@ ORDER BY total_casos DESC
 LIMIT 10;
 
 <img width="710" height="419" alt="image" src="https://github.com/user-attachments/assets/009434d9-3e20-498b-8a2d-bf97c111ae4e" /> 
+
