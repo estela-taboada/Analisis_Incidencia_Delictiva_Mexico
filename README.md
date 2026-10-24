@@ -39,7 +39,7 @@ El código completo y estructurado se encuentra documentado en el archivo:
 ###
 👉 SQL
 
-```dax
+```SQL
 
 -- =============================================================================
 -- PROYECTO: Análisis de Incidencia Delictiva y Estacionalidad en México
