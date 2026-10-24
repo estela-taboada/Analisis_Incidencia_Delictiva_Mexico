@@ -1,44 +1,43 @@
-### 📋📋Crimenes_2015_al_2025_México📋📋
-## Análisis crímenes en México 2015 al 2025
-🚓🚓🚓Datos de índices delictivos de los años 2015 al 2025, tomados de la pagina https://www.datos.gob.mx/dataset/?res_format=CSV, del gobiernos.
+# 📊 Análisis de Incidencia Delictiva y Estacionalidad en México
 
-# 1. Dimensiones generales (Filas y Total de Delitos)
-Para conocer el volumen total de tu universo:
+Proyecto enfocado en la estructuración, agregación lógica y visualización de datos de incidencia delictiva a nivel nacional y estatal (con foco en el estado de Querétaro), aplicando consultas avanzadas en **SQLite** y construcción de un dashboard ejecutivo en **Power BI Desktop**.
 
--#- SQL
-SELECT 
-    COUNT(*) AS total_registros,
-    SUM(incidencias_delictivas) AS total_delitos
-FROM crimenes;
+---
 
-<img width="441" height="91" alt="image" src="https://github.com/user-attachments/assets/9ee2ae41-e111-4d7a-94b4-e065237f08e7" />
+## 📈 Dashboard Ejecutivo
+![Monitoreo de Incidencia Delictiva](dashboard_queretaro_delincuencia.png)
 
-2. Top 5 Bienes Jurídicos más Afectados
-Para ver a nivel macro hacia dónde se inclina la actividad delictiva (Patrimonio, Vida, Libertad, etc.):
+---
 
-SELECT 
-    bien_juridico_afectado,
-    SUM(incidencias_delictivas) AS total_delitos,
-    ROUND(100.0 * SUM(incidencias_delictivas) / (SELECT SUM(incidencias_delictivas) FROM crimenes), 2) AS porcentaje
-FROM crimenes
-GROUP BY bien_juridico_afectado
-ORDER BY total_delitos DESC
-LIMIT 5;
+## 🎯 Objetivos del Análisis
+1. **Identificar la estacionalidad delictiva nacional:** Determinar los periodos del año con mayores concentraciones de incidencias.
+2. **Evaluar la tendencia histórica en Querétaro:** Analizar la evolución anual del volumen total de delitos frente a categorías críticas como robo y violencia familiar.
+3. **Estructurar un flujo de datos eficiente:** Realizar la extracción y agregación pesada directamente en motor SQL para servir modelos ligeros y directos a la capa visual.
 
-<img width="699" height="226" alt="image" src="https://github.com/user-attachments/assets/0f76a530-08bb-428f-bca4-93b92e7fc823" />
+---
 
-3. Top 10 Delitos Específicos más Frecuentes
-Para identificar los focos rojos concretos:
+## 🛠️ Stack Técnico y Funciones Clave
+* **Motor de Base de Datos:** SQLite
+* **Visualización & BI:** Microsoft Power BI Desktop
+* **Técnicas SQL aplicadas:**
+  * **Tratamiento temporal:** Normalización y extracción de año y mes mediante segmentación posicional (`SUBSTR`).
+  * **Agregaciones condicionales:** Implementación de `SUM(CASE WHEN ... THEN ... ELSE 0 END)` para pivotar categorías de delitos en columnas métricas sin necesidad de subconsultas.
+  * **Filtros lógicos y comodines:** Uso de `LIKE '%Quer%taro%'` para prevenir inconsistencias tipográficas en variables geográficas.
+  * **Agrupaciones jerárquicas:** `GROUP BY` optimizados para granularidades mensuales y anuales.
 
-SQL
-SELECT 
-    tipo_delito,
-    subtipo_delito,
-    SUM(incidencias_delictivas) AS total_casos
-FROM crimenes
-GROUP BY tipo_delito, subtipo_delito
-ORDER BY total_casos DESC
-LIMIT 10;
+---
 
-<img width="710" height="419" alt="image" src="https://github.com/user-attachments/assets/009434d9-3e20-498b-8a2d-bf97c111ae4e" /> 
+## 📌 Principales Hallazgos (Insights)
+* **Picos de Estacionalidad Nacional:** Octubre encabeza históricamente la mayor incidencia delictiva acumulada en el país (1.91 millones de incidentes), seguido de marzo (1.89M) y mayo (1.87M).
+* **Comportamiento en Querétaro:** 
+  * De un total acumulado de más de **591 mil delitos**, los robos representan el volumen principal con **253 mil incidencias**, mientras que los casos de violencia familiar registran **42 mil casos**.
+  * La serie histórica muestra un comportamiento oscilatorio, evidenciando una contracción clara durante 2020 y una posterior estabilización en años recientes.
 
+---
+
+## 📂 Consultas y Código Fuente
+El código completo y estructurado se encuentra documentado en el archivo:
+👉 [`analisis_delincuencia.sql`](analisis_delincuencia.sql)
+
+---
+*Desarrollado por Estela Taboada Hernández | Data & Business Intelligence*
