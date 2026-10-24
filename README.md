@@ -1,7 +1,7 @@
 # 📊 Análisis de Incidencia Delictiva y Estacionalidad en México
 
 Proyecto enfocado en la estructuración, agregación lógica y visualización de datos de incidencia delictiva a nivel nacional y estatal (con foco en el estado de Querétaro), aplicando consultas avanzadas en **SQLite** y construcción de un dashboard ejecutivo en **Power BI Desktop**.
-
+ 
 ---
 ## 📈 Dashboard Ejecutivo
 <img width="1071" height="620" alt="image" src="https://github.com/user-attachments/assets/95a2687a-9060-45a6-b55d-e2e07b8ebf30" />
