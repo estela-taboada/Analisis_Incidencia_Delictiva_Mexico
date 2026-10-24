@@ -5,7 +5,7 @@ Proyecto enfocado en la estructuración, agregación lógica y visualización de
 ---
 
 ## 📈 Dashboard Ejecutivo
-![Monitoreo de Incidencia Delictiva](dashboard_queretaro_delincuencia.png)
+<img width="1071" height="620" alt="image" src="https://github.com/user-attachments/assets/95a2687a-9060-45a6-b55d-e2e07b8ebf30" />
 
 ---
 
