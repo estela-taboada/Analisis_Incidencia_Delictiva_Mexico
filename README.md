@@ -38,8 +38,7 @@ Proyecto enfocado en la estructuración, agregación lógica y visualización de
 El código completo y estructurado se encuentra documentado en el archivo:
 👉 SQL
 
-sql . . .
-
+```dax
 
 -- =============================================================================
 -- PROYECTO: Análisis de Incidencia Delictiva y Estacionalidad en México
